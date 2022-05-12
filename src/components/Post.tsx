@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 interface PostProps {
@@ -6,6 +7,7 @@ interface PostProps {
 }
 const Post: React.FC<PostProps> = ({ currentTab }) => {
   const [post, setPost] = useState<any>([]);
+  const navigate = useNavigate();
   function timeForToday(value: string) {
     const today = new Date();
     const timeValue = new Date(value);
@@ -28,7 +30,7 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
   }
 
   const axios_GetPost = async () => {
-    await axios.get("./data/Post.json").then((res) => {
+    await axios.get("../../../data/Post.json").then((res) => {
       // const data = JSON.stringify(res.data.POSTS);
       if (currentTab === 0) {
         const data = res.data.POSTS;
@@ -94,21 +96,48 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
               <div>
                 <div className="user_name">{el.writerNickName}</div>
                 <div className="category">
-                  {el.categoryName} / {timeForToday(el.writtenAt)}
+                  {el.categoryName} • {timeForToday(el.writtenAt)}
                 </div>
               </div>
             </Header>
             <Main>
-              <div className="title">{el.title}</div>
-              <div className="content">
+              <div
+                className="title"
+                onClick={() => navigate(`/community/post/${el.pk}`)}
+              >
+                {el.title}
+              </div>
+              <div
+                className="content"
+                onClick={() => navigate(`/community/post/${el.pk}`)}
+              >
                 {textLengthOverCut(el.content, 60, "...")}
               </div>
               {!el.imageUrl ? (
                 <></>
               ) : (
-                <img className="content_image" src={el.imageUrl}></img>
+                <img
+                  className="content_image"
+                  src={el.imageUrl}
+                  onClick={() => navigate(`/community/post/${el.pk}`)}
+                ></img>
               )}
+              <PostInfo>
+                <span className="post_view">
+                  <img src="../../../eye.svg"></img>
+                  <span>{el.viewCount}</span>
+                </span>
+                <span className="post_likes">
+                  <img src="../../../hand-thumbs-up.svg"></img>
+                  <span>{el.likeCount}</span>
+                </span>
+                <span className="post_comment">
+                  <img src="../../../chat-dots.svg"></img>
+                  <span>{el.commentCount}</span>
+                </span>
+              </PostInfo>
             </Main>
+            <Underbar />
           </PostData>
         );
       })}
@@ -129,12 +158,11 @@ const Container = styled.div`
 `;
 const PostData = styled.article`
   margin: 0;
-  padding: 14px 14px 14px 16px;
 `;
 
 const Header = styled.header`
   display: flex;
-
+  padding: 14px 14px 14px 16px;
   > img {
     width: 32px;
     height: 32px;
@@ -161,7 +189,7 @@ const Header = styled.header`
 const Main = styled.div`
   display: flex;
   flex-direction: column;
-
+  padding: 14px 14px 14px 16px;
   .title {
     font-size: 16px;
     font-weight: 700;
@@ -180,5 +208,25 @@ const Main = styled.div`
   .content_image {
     height: 160px;
     cursor: pointer;
+  }
+`;
+const Underbar = styled.div`
+  width: 360px;
+  margin: 0;
+  padding: 0;
+  height: 6px;
+  background-color: #e8e8e8;
+`;
+const PostInfo = styled.div`
+  > span {
+    color: #b4b4b4;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 12px;
+    > img {
+      width: 14px;
+      height: 10px;
+      color: #b4b4b4;
+    }
   }
 `;

@@ -11,8 +11,9 @@ const Home = () => {
 
   const axios_GetCategorie = async () => {
     await axios
-      .get("./data/Categories.json")
-      .then((res) => setCategorieDB(res.data.CATEGORIES));
+      .get("../../../data/Categories.json")
+      .then((res) => setCategorieDB(res.data.CATEGORIES))
+      .catch((err) => console.log(err));
   };
   useEffect(() => {
     axios_GetCategorie();
