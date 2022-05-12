@@ -3,9 +3,11 @@ import { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import CategorieTab from "../components/CategoryTab";
+import Post from "../components/Post";
 
-export default function Home() {
+const Home = () => {
   const [categorieDB, setCategorieDB] = useState<any>([]);
+  const [currentTab, setCurrntTab] = useState(0);
 
   const axios_GetCategorie = async () => {
     await axios
@@ -19,18 +21,19 @@ export default function Home() {
   return (
     <Container>
       <Header>커뮤니티</Header>
-      {/* <Buttons> */}
-      <CategorieTab item={categorieDB} />
-      {/* {categorieDB.map((el: any, index: number) => (
-          <CategorieTab index={index} item={el} />
-        ))} */}
-      {/* </Buttons> */}
-      <Item></Item>
+      <CategorieTab
+        item={categorieDB}
+        currentTab={currentTab}
+        setCurrentTab={setCurrntTab}
+      />
+      <Item>
+        <Post currentTab={currentTab} />
+      </Item>
       <PostButton>글쓰기 ✍️</PostButton>
     </Container>
   );
-}
-
+};
+export default Home;
 const Container = styled.div`
   display: flex;
   position: relative;
@@ -64,4 +67,9 @@ const PostButton = styled.button`
   bottom: 12vh;
   right: 41vw;
 `;
-const Item = styled.ul``;
+const Item = styled.div`
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
+`;

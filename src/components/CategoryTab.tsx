@@ -1,17 +1,20 @@
 import styled from "styled-components";
 import * as React from "react";
-import { useState } from "react";
 
 interface CategorieProps {
   item: [{ categoryPk: number; categoryName: string; categoryCode: string }];
+  currentTab: number;
+  setCurrentTab: React.Dispatch<React.SetStateAction<number>>;
 }
-const CategoryTab: React.FC<CategorieProps> = ({ item }) => {
-  const [currentTab, setCurrntTab] = useState(0);
-
+const CategoryTab: React.FC<CategorieProps> = ({
+  item,
+  currentTab,
+  setCurrentTab,
+}) => {
   const handleBtnClick = (index: number) => {
-    setCurrntTab(index);
+    setCurrentTab(index);
   };
-  console.log(item);
+  //console.log(item);
   //console.log(index, "index");
   return (
     <ButtonGroup>
@@ -35,14 +38,13 @@ const CategoryTab: React.FC<CategorieProps> = ({ item }) => {
   );
 };
 const ButtonGroup = styled.div`
-  padding-left: 20px;
+  padding-left: 15px;
 `;
 const Button = styled.ul`
   display: flex;
   white-space: nowrap;
   overflow: auto;
   .submenu {
-    margin-left: 2px;
     background: #ffffff;
     padding: 12px 16px;
     border: 1px solid #e8e8e8;

@@ -1,7 +1,7 @@
 {
   "POSTS": [
     {
-      "categoryPk": 1,
+      "categoryPk": 3,
       "categoryName": "대선청원",
       "pk": 1,
       "title": "별을 다하지 애기 듯합니다. 아스라히 지나가는 하늘에는 봅니다.",
@@ -15,7 +15,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png"
     },
     {
-      "categoryPk": 2,
+      "categoryPk": 4,
       "categoryName": "자유글",
       "pk": 2,
       "title": "나는 딴은 겨울이 하나에 이름자를 슬퍼하는 차 것은 잠, 거외다.",
@@ -29,7 +29,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 3,
+      "categoryPk": 5,
       "categoryName": "질문/답변",
       "pk": 3,
       "title": "풀이 구하기 너의 영락과 그들의 봄날의 때문이다.",
@@ -43,7 +43,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
     },
     {
-      "categoryPk": 4,
+      "categoryPk": 6,
       "categoryName": "뉴스",
       "pk": 4,
       "title": "위하여서 방황하여도, 그들은 품었기 사막이다.",
@@ -57,7 +57,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-purple-devil-39-39%403x.png"
     },
     {
-      "categoryPk": 5,
+      "categoryPk": 7,
       "categoryName": "노하우",
       "pk": 5,
       "title": "전인 이 얼음과 그들에게 위하여서, 유소년에게서 것이다.",
@@ -71,7 +71,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 1,
+      "categoryPk": 3,
       "categoryName": "대선청원",
       "pk": 6,
       "title": "별을 다하지 애기 듯합니다. 아스라히 지나가는 하늘에는 봅니다.",
@@ -85,7 +85,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png"
     },
     {
-      "categoryPk": 2,
+      "categoryPk": 4,
       "categoryName": "자유글",
       "pk": 7,
       "title": "나는 딴은 겨울이 하나에 이름자를 슬퍼하는 차 것은 잠, 거외다.",
@@ -99,7 +99,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 3,
+      "categoryPk": 5,
       "categoryName": "질문/답변",
       "pk": 8,
       "title": "풀이 구하기 너의 영락과 그들의 봄날의 때문이다.",
@@ -113,7 +113,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
     },
     {
-      "categoryPk": 4,
+      "categoryPk": 6,
       "categoryName": "뉴스",
       "pk": 9,
       "title": "위하여서 방황하여도, 그들은 품었기 사막이다.",
@@ -127,7 +127,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-purple-devil-39-39%403x.png"
     },
     {
-      "categoryPk": 5,
+      "categoryPk": 7,
       "categoryName": "노하우",
       "pk": 10,
       "title": "전인 이 얼음과 그들에게 위하여서, 유소년에게서 것이다.",
@@ -141,7 +141,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 1,
+      "categoryPk": 3,
       "categoryName": "대선청원",
       "pk": 11,
       "title": "별을 다하지 애기 듯합니다. 아스라히 지나가는 하늘에는 봅니다.",
@@ -155,7 +155,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png"
     },
     {
-      "categoryPk": 2,
+      "categoryPk": 4,
       "categoryName": "자유글",
       "pk": 12,
       "title": "나는 딴은 겨울이 하나에 이름자를 슬퍼하는 차 것은 잠, 거외다.",
@@ -169,7 +169,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 3,
+      "categoryPk": 5,
       "categoryName": "질문/답변",
       "pk": 13,
       "title": "풀이 구하기 너의 영락과 그들의 봄날의 때문이다.",
@@ -183,7 +183,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
     },
     {
-      "categoryPk": 4,
+      "categoryPk": 6,
       "categoryName": "뉴스",
       "pk": 14,
       "title": "위하여서 방황하여도, 그들은 품었기 사막이다.",
@@ -197,7 +197,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-purple-devil-39-39%403x.png"
     },
     {
-      "categoryPk": 5,
+      "categoryPk": 7,
       "categoryName": "노하우",
       "pk": 15,
       "title": "전인 이 얼음과 그들에게 위하여서, 유소년에게서 것이다.",
@@ -211,7 +211,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 1,
+      "categoryPk": 3,
       "categoryName": "대선청원",
       "pk": 16,
       "title": "별을 다하지 애기 듯합니다. 아스라히 지나가는 하늘에는 봅니다.",
@@ -225,7 +225,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png"
     },
     {
-      "categoryPk": 2,
+      "categoryPk": 4,
       "categoryName": "자유글",
       "pk": 17,
       "title": "나는 딴은 겨울이 하나에 이름자를 슬퍼하는 차 것은 잠, 거외다.",
@@ -239,7 +239,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 3,
+      "categoryPk": 5,
       "categoryName": "질문/답변",
       "pk": 18,
       "title": "풀이 구하기 너의 영락과 그들의 봄날의 때문이다.",
@@ -253,7 +253,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
     },
     {
-      "categoryPk": 4,
+      "categoryPk": 6,
       "categoryName": "뉴스",
       "pk": 19,
       "title": "위하여서 방황하여도, 그들은 품었기 사막이다.",
@@ -267,7 +267,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-purple-devil-39-39%403x.png"
     },
     {
-      "categoryPk": 5,
+      "categoryPk": 7,
       "categoryName": "노하우",
       "pk": 20,
       "title": "전인 이 얼음과 그들에게 위하여서, 유소년에게서 것이다.",
@@ -281,7 +281,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 1,
+      "categoryPk": 3,
       "categoryName": "대선청원",
       "pk": 21,
       "title": "별을 다하지 애기 듯합니다. 아스라히 지나가는 하늘에는 봅니다.",
@@ -295,7 +295,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png"
     },
     {
-      "categoryPk": 2,
+      "categoryPk": 4,
       "categoryName": "자유글",
       "pk": 22,
       "title": "나는 딴은 겨울이 하나에 이름자를 슬퍼하는 차 것은 잠, 거외다.",
@@ -309,7 +309,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 3,
+      "categoryPk": 5,
       "categoryName": "질문/답변",
       "pk": 23,
       "title": "풀이 구하기 너의 영락과 그들의 봄날의 때문이다.",
@@ -323,7 +323,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
     },
     {
-      "categoryPk": 4,
+      "categoryPk": 6,
       "categoryName": "뉴스",
       "pk": 24,
       "title": "위하여서 방황하여도, 그들은 품었기 사막이다.",
@@ -337,7 +337,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-purple-devil-39-39%403x.png"
     },
     {
-      "categoryPk": 5,
+      "categoryPk": 7,
       "categoryName": "노하우",
       "pk": 25,
       "title": "전인 이 얼음과 그들에게 위하여서, 유소년에게서 것이다.",
@@ -351,7 +351,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 1,
+      "categoryPk": 3,
       "categoryName": "대선청원",
       "pk": 26,
       "title": "별을 다하지 애기 듯합니다. 아스라히 지나가는 하늘에는 봅니다.",
@@ -365,7 +365,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png"
     },
     {
-      "categoryPk": 2,
+      "categoryPk": 4,
       "categoryName": "자유글",
       "pk": 27,
       "title": "나는 딴은 겨울이 하나에 이름자를 슬퍼하는 차 것은 잠, 거외다.",
@@ -379,7 +379,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 3,
+      "categoryPk": 5,
       "categoryName": "질문/답변",
       "pk": 28,
       "title": "풀이 구하기 너의 영락과 그들의 봄날의 때문이다.",
@@ -393,7 +393,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
     },
     {
-      "categoryPk": 4,
+      "categoryPk": 6,
       "categoryName": "뉴스",
       "pk": 29,
       "title": "위하여서 방황하여도, 그들은 품었기 사막이다.",
@@ -407,7 +407,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-purple-devil-39-39%403x.png"
     },
     {
-      "categoryPk": 5,
+      "categoryPk": 7,
       "categoryName": "노하우",
       "pk": 30,
       "title": "전인 이 얼음과 그들에게 위하여서, 유소년에게서 것이다.",
@@ -421,7 +421,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 1,
+      "categoryPk": 3,
       "categoryName": "대선청원",
       "pk": 31,
       "title": "별을 다하지 애기 듯합니다. 아스라히 지나가는 하늘에는 봅니다.",
@@ -435,7 +435,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png"
     },
     {
-      "categoryPk": 2,
+      "categoryPk": 4,
       "categoryName": "자유글",
       "pk": 32,
       "title": "나는 딴은 겨울이 하나에 이름자를 슬퍼하는 차 것은 잠, 거외다.",
@@ -449,7 +449,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 3,
+      "categoryPk": 5,
       "categoryName": "질문/답변",
       "pk": 33,
       "title": "풀이 구하기 너의 영락과 그들의 봄날의 때문이다.",
@@ -463,7 +463,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
     },
     {
-      "categoryPk": 4,
+      "categoryPk": 6,
       "categoryName": "뉴스",
       "pk": 34,
       "title": "위하여서 방황하여도, 그들은 품었기 사막이다.",
@@ -477,7 +477,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-purple-devil-39-39%403x.png"
     },
     {
-      "categoryPk": 5,
+      "categoryPk": 7,
       "categoryName": "노하우",
       "pk": 35,
       "title": "전인 이 얼음과 그들에게 위하여서, 유소년에게서 것이다.",
@@ -491,7 +491,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 1,
+      "categoryPk": 3,
       "categoryName": "대선청원",
       "pk": 36,
       "title": "별을 다하지 애기 듯합니다. 아스라히 지나가는 하늘에는 봅니다.",
@@ -505,7 +505,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png"
     },
     {
-      "categoryPk": 2,
+      "categoryPk": 4,
       "categoryName": "자유글",
       "pk": 37,
       "title": "나는 딴은 겨울이 하나에 이름자를 슬퍼하는 차 것은 잠, 거외다.",
@@ -519,7 +519,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
     },
     {
-      "categoryPk": 3,
+      "categoryPk": 5,
       "categoryName": "질문/답변",
       "pk": 38,
       "title": "풀이 구하기 너의 영락과 그들의 봄날의 때문이다.",
@@ -533,7 +533,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
     },
     {
-      "categoryPk": 4,
+      "categoryPk": 6,
       "categoryName": "뉴스",
       "pk": 39,
       "title": "위하여서 방황하여도, 그들은 품었기 사막이다.",
@@ -547,7 +547,7 @@
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-purple-devil-39-39%403x.png"
     },
     {
-      "categoryPk": 5,
+      "categoryPk": 7,
       "categoryName": "노하우",
       "pk": 40,
       "title": "전인 이 얼음과 그들에게 위하여서, 유소년에게서 것이다.",
