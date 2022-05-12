@@ -65,15 +65,19 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
             {!postDetail[0].imageUrl ? (
               <></>
             ) : (
-              <img className="content_image" src={postDetail[0].imageUrl}></img>
+              <img
+                className="content_image"
+                src={postDetail[0].imageUrl}
+                alt="content_image"
+              ></img>
             )}
             <PostInfo>
               <span className="post_likes">
-                <img src="../../../hand-thumbs-up.svg"></img>
+                <img src="../../../hand-thumbs-up.svg" alt="thumns-up"></img>
                 <span>{postDetail[0].likeCount}</span>
               </span>
               <span className="post_comment">
-                <img src="../../../chat-dots.svg"></img>
+                <img src="../../../chat-dots.svg" alt="chat"></img>
                 <span>{postDetail[0].commentCount}</span>
               </span>
             </PostInfo>
@@ -166,6 +170,7 @@ const PostInfo = styled.div`
     font-size: 12px;
     font-weight: 500;
     line-height: 12px;
+    cursor: pointer;
     > img {
       margin-right: 5px;
       width: 14px;

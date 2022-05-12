@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
@@ -13,27 +13,6 @@ const Post = () => {
   const [postDetail, setPostDetail] = useState<any>([]);
   const [init, setInit] = useState<number>(0);
   //console.log(post_pk, "pk");
-  function timeForToday(value: string) {
-    // console.log(value);
-    const today = new Date();
-    const timeValue = new Date(value);
-
-    const betweenTime = Math.floor(
-      (today.getTime() - timeValue.getTime()) / 1000 / 60
-    );
-    if (betweenTime < 1) return "방금전";
-    if (betweenTime < 60) {
-      return `${betweenTime}분전`;
-    }
-
-    const betweenTimeHour = Math.floor(betweenTime / 60);
-    if (betweenTimeHour < 24) {
-      return `${betweenTimeHour}시간전`;
-    } else {
-      const overDate = value.split("T")[0];
-      return overDate.slice(2, 10);
-    }
-  }
 
   const axios_GetPost_Detail = async () => {
     await axios.get("../../../data/Post.json").then((el) => {

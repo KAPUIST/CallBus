@@ -67,11 +67,11 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
     });
   };
   function textLengthOverCut(txt: string, len: any, lastTxt: string) {
-    if (len == "" || len == null) {
+    if (len === "" || len === null) {
       // 기본값
       len = 20;
     }
-    if (lastTxt == "" || lastTxt == null) {
+    if (lastTxt === "" || lastTxt === null) {
       // 기본값
       lastTxt = "...";
     }
@@ -120,19 +120,20 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
                   className="content_image"
                   src={el.imageUrl}
                   onClick={() => navigate(`/community/post/${el.pk}`)}
+                  alt="content_image"
                 ></img>
               )}
               <PostInfo>
                 <span className="post_view">
-                  <img src="../../../eye.svg"></img>
+                  <img src="../../../eye.svg" alt="content_view"></img>
                   <span>{el.viewCount}</span>
                 </span>
                 <span className="post_likes">
-                  <img src="../../../hand-thumbs-up.svg"></img>
+                  <img src="../../../hand-thumbs-up.svg" alt="thumbs-up"></img>
                   <span>{el.likeCount}</span>
                 </span>
                 <span className="post_comment">
-                  <img src="../../../chat-dots.svg"></img>
+                  <img src="../../../chat-dots.svg" alt="chat"></img>
                   <span>{el.commentCount}</span>
                 </span>
               </PostInfo>
