@@ -1,0 +1,39 @@
+{
+  "CATEGORIES": [
+    {
+      "categoryPk": 1,
+      "categoryCode": "ALL",
+      "categoryName": "전체"
+    },
+    {
+      "categoryPk": 2,
+      "categoryCode": "HOT",
+      "categoryName": "☆인기글"
+    },
+    {
+      "categoryPk": 3,
+      "categoryCode": "PETITION",
+      "categoryName": "대선청원"
+    },
+    {
+      "categoryPk": 4,
+      "categoryCode": "FREE",
+      "categoryName": "자유글"
+    },
+    {
+      "categoryPk": 5,
+      "categoryCode": "QNA",
+      "categoryName": "질문/답변"
+    },
+    {
+      "categoryPk": 6,
+      "categoryCode": "NEWS",
+      "categoryName": "뉴스"
+    },
+    {
+      "categoryPk": 7,
+      "categoryCode": "TIP",
+      "categoryName": "노하우"
+    }
+  ]
+}
