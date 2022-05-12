@@ -88,9 +88,9 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
 
   return (
     <Container>
-      {post.map((el: any) => {
+      {post.map((el: any, key: number) => {
         return (
-          <PostData>
+          <PostData key={key}>
             <Header>
               <img src={el.writerProfileUrl} alt={el.writerNickName} />
               <div>
