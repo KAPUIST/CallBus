@@ -107,10 +107,6 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
     }
     return txt;
   };
-
-  //console.log(currentTab);
-  //console.log(post.);
-
   return (
     <Container>
       {isLoading ? (

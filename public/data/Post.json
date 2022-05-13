@@ -37,7 +37,10 @@
       "viewCount": 12,
       "likeCount": 0,
       "commentCount": 0,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-04-18T17:29:19",
       "writerNickName": "황금쌀",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"

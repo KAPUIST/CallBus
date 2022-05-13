@@ -65,13 +65,13 @@ const PostButton = styled.button`
   font-weight: 700;
   font-size: 16px;
   border-radius: 8px;
-  position: fixed;
+  position: absolute;
   width: 100px;
   height: 52px;
   background-color: #2c7fff;
   color: white;
-  bottom: 12vh;
-  right: 41vw;
+  bottom: 30px;
+  right: 10px;
   cursor: pointer;
   :hover {
     background-color: #e8e8e8; /* Green */

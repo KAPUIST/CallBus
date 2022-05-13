@@ -78,6 +78,12 @@ const MakePost: React.FC = () => {
       swal("모든 내용을 작성해주세요");
     }
   };
+  function handleOnInput(e: any, maxlength: number) {
+    console.log(e.target.value.length);
+    if (e.target.value.length > maxlength) {
+      e.target.value = e.target.value.substr(0, maxlength);
+    }
+  }
   return (
     <Container>
       <Nav>
@@ -105,6 +111,7 @@ const MakePost: React.FC = () => {
       <Title>
         <input
           onChange={(e) => setTitleContent(e.target.value)}
+          onInput={(e) => handleOnInput(e, 99)}
           className="title"
           placeholder="제목을 작성해주세요"
         ></input>

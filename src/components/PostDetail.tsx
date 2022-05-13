@@ -11,7 +11,7 @@ interface DetailProps {
       viewCount: number;
       likeCount: number;
       commentCount: number;
-      imageUrl: null | string;
+      imageUrl: null | string[];
       writtenAt: string;
       writerNickName: string;
       writerProfileUrl: string;
@@ -30,7 +30,18 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
     const likeData = JSON.parse(loadLikeData);
 
     if (!likeData) {
-      localStorage.setItem("LikeData", JSON.stringify([pk]));
+      localStorage.setItem("LikeData", JSON.stringify([]));
+      const loadLikeData: any = localStorage.getItem("LikeData");
+      const likeData = JSON.parse(loadLikeData);
+      for (let j = 0; j < data.length; j++) {
+        if (data[j].pk === pk) {
+          data[j].likeCount = data[j].likeCount + 1;
+          setLikeCount(likeCount + 1);
+          likeData.push(pk);
+          localStorage.setItem("Data", JSON.stringify(data));
+          localStorage.setItem("LikeData", JSON.stringify(likeData));
+        }
+      }
     } else if (likeData.includes(pk)) {
       for (let j = 0; j < data.length; j++) {
         if (data[j].pk === pk) {
@@ -44,7 +55,6 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
         }
       }
     } else {
-      console.log(1);
       for (let j = 0; j < data.length; j++) {
         if (data[j].pk === pk) {
           data[j].likeCount = data[j].likeCount + 1;
@@ -97,14 +107,18 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
           <Main>
             <div className="title">{postDetail[0].title}</div>
             <div className="content">{postDetail[0].content}</div>
-            {!postDetail[0].imageUrl ? (
-              <></>
+            {postDetail[0].imageUrl ? (
+              postDetail[0].imageUrl.map((el) => {
+                return (
+                  <img
+                    className="content_image"
+                    src={el}
+                    alt="content_image"
+                  ></img>
+                );
+              })
             ) : (
-              <img
-                className="content_image"
-                src={postDetail[0].imageUrl}
-                alt="content_image"
-              ></img>
+              <></>
             )}
             <PostInfo>
               <span
