@@ -4,7 +4,7 @@ import styled from "styled-components";
 import axios from "axios";
 import PostDetail from "../components/PostDetail";
 
-const Post = () => {
+const Post: React.FC = () => {
   const navigator = useNavigate();
   const handleBackArrow = () => {
     navigator("/community/list");

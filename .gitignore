@@ -1,1 +1,9 @@
 .DS_Store
+node_modules/
+jspm_packages/
+*.tsbuildinfo
+.cache
+pids
+*.pid
+*.seed
+*.pid.lock

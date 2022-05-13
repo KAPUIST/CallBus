@@ -1,6 +1,6 @@
 import React from "react";
 
-const MakePost = () => {
+const MakePost: React.FC = () => {
   return <div>Deteil</div>;
 };
 

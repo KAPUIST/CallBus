@@ -1,11 +1,10 @@
-import * as React from "react";
 import { useState, useEffect } from "react";
 import styled from "styled-components";
 import axios from "axios";
 import CategorieTab from "../components/CategoryTab";
 import Post from "../components/Post";
 
-const Home = () => {
+const Home: React.FC = () => {
   const [categorieDB, setCategorieDB] = useState<any>([]);
   const [currentTab, setCurrntTab] = useState(0);
 
