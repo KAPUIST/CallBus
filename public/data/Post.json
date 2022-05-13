@@ -68,7 +68,9 @@
       "viewCount": 4,
       "likeCount": 5,
       "commentCount": 2,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-04-16T17:29:19",
       "writerNickName": "무늬만여우",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
@@ -110,7 +112,9 @@
       "viewCount": 12,
       "likeCount": 0,
       "commentCount": 0,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-04-13T17:29:19",
       "writerNickName": "황금쌀",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
@@ -138,7 +142,9 @@
       "viewCount": 4,
       "likeCount": 5,
       "commentCount": 2,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-04-11T17:29:19",
       "writerNickName": "무늬만여우",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
@@ -180,7 +186,9 @@
       "viewCount": 12,
       "likeCount": 0,
       "commentCount": 0,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-04-09T17:29:19",
       "writerNickName": "황금쌀",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
@@ -208,7 +216,9 @@
       "viewCount": 4,
       "likeCount": 5,
       "commentCount": 2,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-04-08T17:29:19",
       "writerNickName": "무늬만여우",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
@@ -250,7 +260,9 @@
       "viewCount": 12,
       "likeCount": 0,
       "commentCount": 0,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-04-05T17:29:19",
       "writerNickName": "황금쌀",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
@@ -278,7 +290,9 @@
       "viewCount": 4,
       "likeCount": 5,
       "commentCount": 2,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-04-03T17:29:19",
       "writerNickName": "무늬만여우",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
@@ -320,7 +334,9 @@
       "viewCount": 12,
       "likeCount": 0,
       "commentCount": 0,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-03-31T17:29:19",
       "writerNickName": "황금쌀",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
@@ -348,7 +364,9 @@
       "viewCount": 4,
       "likeCount": 5,
       "commentCount": 2,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-03-29T17:29:19",
       "writerNickName": "무늬만여우",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
@@ -390,7 +408,9 @@
       "viewCount": 12,
       "likeCount": 0,
       "commentCount": 0,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-03-26T17:29:19",
       "writerNickName": "황금쌀",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
@@ -418,7 +438,9 @@
       "viewCount": 4,
       "likeCount": 5,
       "commentCount": 2,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-03-24T17:29:19",
       "writerNickName": "무늬만여우",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
@@ -460,7 +482,9 @@
       "viewCount": 12,
       "likeCount": 0,
       "commentCount": 0,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-03-21T17:29:19",
       "writerNickName": "황금쌀",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
@@ -488,7 +512,9 @@
       "viewCount": 4,
       "likeCount": 5,
       "commentCount": 2,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2022-03-19T17:29:19",
       "writerNickName": "무늬만여우",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"
@@ -530,7 +556,9 @@
       "viewCount": 12,
       "likeCount": 0,
       "commentCount": 0,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2021-06-18T17:29:19",
       "writerNickName": "황금쌀",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-ailien-39-39%403x.png"
@@ -558,7 +586,9 @@
       "viewCount": 4,
       "likeCount": 5,
       "commentCount": 2,
-      "imageUrl": "https://static.zaritalk.com/images/img-default-thumbnail@2x.png",
+      "imageUrl": [
+        "https://static.zaritalk.com/images/img-default-thumbnail@2x.png"
+      ],
       "writtenAt": "2021-04-18T17:29:19",
       "writerNickName": "무늬만여우",
       "writerProfileUrl": "https://static.zaritalk.com/profiles/profile-57-img-chick-39-39%403x.png"

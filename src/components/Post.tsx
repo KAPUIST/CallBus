@@ -32,7 +32,7 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
         b = new Date(b.writtenAt);
         return a > b ? -1 : a < b ? 1 : 0;
       });
-      console.log(data);
+      //console.log(data);
       setPost(data);
     }
   };
@@ -131,15 +131,15 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
                 <div className="content" onClick={() => handleToDetail(el.pk)}>
                   {textLengthOverCut(el.content, 60, "...")}
                 </div>
-                {!el.imageUrl ? (
-                  <></>
-                ) : (
+                {el.imageUrl ? (
                   <img
                     className="content_image"
-                    src={el.imageUrl}
+                    src={el.imageUrl[0]}
                     onClick={() => handleToDetail(el.pk)}
                     alt="content_image"
                   ></img>
+                ) : (
+                  <></>
                 )}
                 <PostInfo>
                   <span className="post_view">
