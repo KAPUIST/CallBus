@@ -24,14 +24,35 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
   const localData: any = localStorage.getItem("Data");
   const data = JSON.parse(localData);
   const [likeCount, setLikeCount] = useState(postDetail[0].likeCount);
+
   const handleCount = (pk: number) => {
-    //console.log(postDetail);
-    for (let i = 0; i < data.length; i++) {
-      if (data[i].pk === pk) {
-        data[i].likeCount = data[i].likeCount + 1;
-        setLikeCount(likeCount + 1);
-        //console.log(postDetail[0].likeCount);
-        localStorage.setItem("Data", JSON.stringify(data));
+    const loadLikeData: any = localStorage.getItem("LikeData");
+    const likeData = JSON.parse(loadLikeData);
+
+    if (!likeData) {
+      localStorage.setItem("LikeData", JSON.stringify([pk]));
+    } else if (likeData.includes(pk)) {
+      for (let j = 0; j < data.length; j++) {
+        if (data[j].pk === pk) {
+          //console.log(likeData, "1");
+          const fixData = likeData.filter((el: number) => el !== pk);
+          //console.log(fixData, "2");
+          data[j].likeCount = data[j].likeCount - 1;
+          setLikeCount(likeCount - 1);
+          localStorage.setItem("Data", JSON.stringify(data));
+          localStorage.setItem("LikeData", JSON.stringify(fixData));
+        }
+      }
+    } else {
+      console.log(1);
+      for (let j = 0; j < data.length; j++) {
+        if (data[j].pk === pk) {
+          data[j].likeCount = data[j].likeCount + 1;
+          setLikeCount(likeCount + 1);
+          likeData.push(pk);
+          localStorage.setItem("Data", JSON.stringify(data));
+          localStorage.setItem("LikeData", JSON.stringify(likeData));
+        }
       }
     }
   };

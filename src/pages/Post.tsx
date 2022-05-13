@@ -53,6 +53,10 @@ const Container = styled.div`
   border-radius: 10px;
   width: 360px;
   height: 830px;
+  overflow: auto;
+  ::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Opera*/
+  }
 `;
 const Nav = styled.div`
   display: flex;
