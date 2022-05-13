@@ -142,7 +142,6 @@ const Main = styled.div`
     line-height: 25px;
     color: #222222;
     margin-bottom: 6px;
-    cursor: pointer;
   }
   .content {
     padding: 14px 14px 14px 16px;
@@ -150,13 +149,11 @@ const Main = styled.div`
     font-weight: 400;
     line-height: 25px;
     color: #7a7a7a;
-    cursor: pointer;
   }
   .content_image {
     width: 358px;
     height: 356px;
     margin-bottom: 15px;
-    cursor: pointer;
   }
 `;
 const PostInfo = styled.div`

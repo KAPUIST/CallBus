@@ -7,8 +7,6 @@ const MakePost: React.FC = () => {
   const [selectCategorie, setSelectCategorie] = useState<string>("");
   const [titleContent, setTitleContent] = useState<string>("");
   const [textContent, setTextContent] = useState<any>("");
-  const [categorypk, setCategoryPk] = useState(0);
-  const [writtenAt, setWrittenAt] = useState<string>("");
   const [photo, setPhoto] = useState<any>({
     previewURL: "",
   });
@@ -43,6 +41,7 @@ const MakePost: React.FC = () => {
           "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png",
       };
       window.localStorage.setItem("newPost", JSON.stringify(newPost));
+      navigator("/community/list");
     } else {
       swal("모든 내용을 작성해주세요");
     }

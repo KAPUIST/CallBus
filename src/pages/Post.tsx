@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
-import axios from "axios";
 import PostDetail from "../components/PostDetail";
 
 const Post: React.FC = () => {
@@ -14,16 +13,15 @@ const Post: React.FC = () => {
   const [init, setInit] = useState<number>(0);
   //console.log(post_pk, "pk");
 
-  const axios_GetPost_Detail = async () => {
-    await axios.get("../../../data/Post.json").then((el) => {
-      //console.log(el.data.POSTS, "post");
-      const data = el.data.POSTS.filter((el: any) => el.pk === Number(post_pk));
-      ///console.log(data, "???");
-      return setPostDetail(data), setInit(1);
-    });
+  const GetPost_Detail = () => {
+    const loadData: any = localStorage.getItem("Data");
+    const data = JSON.parse(loadData);
+    const detaildata = data.filter((el: any) => el.pk === Number(post_pk));
+    ///console.log(data, "???");
+    return setPostDetail(detaildata), setInit(1);
   };
   useEffect(() => {
-    axios_GetPost_Detail();
+    GetPost_Detail();
   }, []);
 
   console.log(postDetail, "detail");

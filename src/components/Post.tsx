@@ -8,6 +8,18 @@ interface PostProps {
 const Post: React.FC<PostProps> = ({ currentTab }) => {
   const [post, setPost] = useState<any>([]);
   const navigate = useNavigate();
+  const localData: any = localStorage.getItem("Data");
+  const data = JSON.parse(localData);
+  const handleToDetail = (el: number) => {
+    navigate(`/community/post/${el}`);
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].pk === el) {
+        data[i].viewCount = data[i].viewCount + 1;
+        localStorage.setItem("Data", JSON.stringify(data));
+      }
+    }
+    return;
+  };
   function timeForToday(value: string) {
     const today = new Date();
     const timeValue = new Date(value);
@@ -30,42 +42,14 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
   }
 
   const axios_GetPost = async () => {
-    await axios.get("../../../data/Post.json").then((res) => {
-      // const data = JSON.stringify(res.data.POSTS);
-      if (currentTab === 0) {
-        const data = res.data.POSTS;
-        setPost(data);
-      } else if (currentTab === 1) {
-        const data = res.data.POSTS.filter((el: any) => el.viewCount > 100);
-        setPost(data);
-      } else if (currentTab === 2) {
-        const data = res.data.POSTS.filter(
-          (el: any) => el.categoryName === "대선청원"
-        );
-        setPost(data);
-      } else if (currentTab === 3) {
-        const data = res.data.POSTS.filter(
-          (el: any) => el.categoryName === "자유글"
-        );
-        setPost(data);
-      } else if (currentTab === 4) {
-        const data = res.data.POSTS.filter(
-          (el: any) => el.categoryName === "질문/답변"
-        );
-        setPost(data);
-      } else if (currentTab === 5) {
-        const data = res.data.POSTS.filter(
-          (el: any) => el.categoryName === "뉴스"
-        );
-        setPost(data);
-      } else if (currentTab === 6) {
-        const data = res.data.POSTS.filter(
-          (el: any) => el.categoryName === "노하우"
-        );
-        setPost(data);
-      }
-    });
+    if (!localStorage.getItem("Data")) {
+      await axios.get("../../../data/Post.json").then((res) => {
+        localStorage.setItem("Data", JSON.stringify(res.data.POSTS));
+        // const data = JSON.stringify(res.data.POSTS);
+      });
+    }
   };
+
   function textLengthOverCut(txt: string, len: any, lastTxt: string) {
     if (len === "" || len === null) {
       // 기본값
@@ -80,12 +64,36 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
     }
     return txt;
   }
+
   useEffect(() => {
-    axios_GetPost();
+    console.log(data);
+    if (currentTab === 0) {
+      setPost(data);
+    } else if (currentTab === 1) {
+      const hotData = data.filter((el: any) => el.viewCount > 100);
+      setPost(hotData);
+    } else if (currentTab === 2) {
+      const petitionData = data.filter(
+        (el: any) => el.categoryName === "대선청원"
+      );
+      setPost(petitionData);
+    } else if (currentTab === 3) {
+      const freeData = data.filter((el: any) => el.categoryName === "자유글");
+      setPost(freeData);
+    } else if (currentTab === 4) {
+      const qnaData = data.filter((el: any) => el.categoryName === "질문/답변");
+      setPost(qnaData);
+    } else if (currentTab === 5) {
+      const newsData = data.filter((el: any) => el.categoryName === "뉴스");
+      setPost(newsData);
+    } else if (currentTab === 6) {
+      const tipData = data.filter((el: any) => el.categoryName === "노하우");
+      setPost(tipData);
+    }
   }, [currentTab]);
   //console.log(currentTab);
   //console.log(post.);
-
+  axios_GetPost();
   return (
     <Container>
       {post.map((el: any, key: number) => {
@@ -101,16 +109,10 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
               </div>
             </Header>
             <Main>
-              <div
-                className="title"
-                onClick={() => navigate(`/community/post/${el.pk}`)}
-              >
+              <div className="title" onClick={() => handleToDetail(el.pk)}>
                 {el.title}
               </div>
-              <div
-                className="content"
-                onClick={() => navigate(`/community/post/${el.pk}`)}
-              >
+              <div className="content" onClick={() => handleToDetail(el.pk)}>
                 {textLengthOverCut(el.content, 60, "...")}
               </div>
               {!el.imageUrl ? (
@@ -119,7 +121,7 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
                 <img
                   className="content_image"
                   src={el.imageUrl}
-                  onClick={() => navigate(`/community/post/${el.pk}`)}
+                  onClick={() => handleToDetail(el.pk)}
                   alt="content_image"
                 ></img>
               )}
