@@ -113,7 +113,7 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
             </Header>
             <Main>
               <div className="title" onClick={() => handleToDetail(el.pk)}>
-                {el.title}
+                {textLengthOverCut(el.title, 25, "...")}
               </div>
               <div className="content" onClick={() => handleToDetail(el.pk)}>
                 {textLengthOverCut(el.content, 60, "...")}

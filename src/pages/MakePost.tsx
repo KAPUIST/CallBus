@@ -13,8 +13,8 @@ const MakePost: React.FC = () => {
   const [photo, setPhoto] = useState<null | string>(null);
   const localData: any = localStorage.getItem("Data");
   const data = JSON.parse(localData);
-  const findMaxPk = async () => {
-    const maxPk = await data.map((el: any) => {
+  const findMaxPk = () => {
+    const maxPk = data.map((el: any) => {
       return el.pk;
     });
     setPk(Math.max(...maxPk) + 1);
