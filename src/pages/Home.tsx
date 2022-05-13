@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import CategorieTab from "../components/CategoryTab";
@@ -7,6 +8,10 @@ import Post from "../components/Post";
 const Home: React.FC = () => {
   const [categorieDB, setCategorieDB] = useState<any>([]);
   const [currentTab, setCurrntTab] = useState(0);
+  const navigator = useNavigate();
+  const handleMakePost = () => {
+    navigator("/community/post/new");
+  };
 
   const axios_GetCategorie = async () => {
     await axios
@@ -29,7 +34,7 @@ const Home: React.FC = () => {
       <Item>
         <Post currentTab={currentTab} />
       </Item>
-      <PostButton>글쓰기 ✍️</PostButton>
+      <PostButton onClick={() => handleMakePost()}>글쓰기 ✍️</PostButton>
     </Container>
   );
 };
@@ -54,6 +59,7 @@ const Header = styled.header`
   font-size: 22px;
 `;
 const PostButton = styled.button`
+  transition-duration: 0.4s;
   font-weight: 700;
   border: white;
   font-weight: 700;
@@ -66,6 +72,10 @@ const PostButton = styled.button`
   color: white;
   bottom: 12vh;
   right: 41vw;
+  :hover {
+    background-color: #e8e8e8; /* Green */
+    color: black;
+  }
 `;
 const Item = styled.div`
   overflow: auto;
