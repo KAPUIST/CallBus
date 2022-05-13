@@ -14,8 +14,7 @@ const CategoryTab: React.FC<CategorieProps> = ({
   const handleBtnClick = (index: number) => {
     setCurrentTab(index);
   };
-  //console.log(item);
-  //console.log(index, "index");
+
   return (
     <ButtonGroup>
       <Button>
@@ -30,9 +29,6 @@ const CategoryTab: React.FC<CategorieProps> = ({
             </li>
           );
         })}
-        {/* <Button onClick={() => handleBtnClick(item.categoryPk)}>
-        {item.categoryName}
-      </Button> */}
       </Button>
     </ButtonGroup>
   );

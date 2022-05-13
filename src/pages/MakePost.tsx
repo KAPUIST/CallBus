@@ -4,31 +4,57 @@ import styled from "styled-components";
 import swal from "sweetalert";
 
 const MakePost: React.FC = () => {
-  const [selectCategorie, setSelectCategorie] = useState<string>("");
+  const navigator = useNavigate();
+  const [selectCategoriePk, setSelectCategoriePk] = useState<number>(0);
+  const [selectCategorieName, setSelectCategorieNmae] = useState<string>("");
+  const [pk, setPk] = useState<number>(0);
   const [titleContent, setTitleContent] = useState<string>("");
   const [textContent, setTextContent] = useState<any>("");
-  const [photo, setPhoto] = useState<any>({
-    previewURL: "",
-  });
+  const [photo, setPhoto] = useState<null | string>(null);
+  const localData: any = localStorage.getItem("Data");
+  const data = JSON.parse(localData);
+  const findMaxPk = async () => {
+    const maxPk = await data.map((el: any) => {
+      return el.pk;
+    });
+    setPk(Math.max(...maxPk) + 1);
+    console.log(pk);
+  };
+  findMaxPk();
   const getFullYmdStr = () => {
-    //년월일시분초 문자열 생성
     var d = new Date();
     return d.toISOString();
   };
-  console.log(textContent);
-  console.log(titleContent);
-  console.log(selectCategorie);
-  const navigator = useNavigate();
+
   const handleBackArrow = () => {
     navigator("/community/list");
   };
   const handleSelect = (e: any) => {
-    setSelectCategorie(e.target.value);
+    console.log(selectCategoriePk);
+    console.log(e.target.value);
+    if (e.target.value === "대선청원") {
+      setSelectCategorieNmae(e.target.value);
+      setSelectCategoriePk(3);
+    } else if (e.target.value === "자유글") {
+      setSelectCategorieNmae(e.target.value);
+      setSelectCategoriePk(4);
+    } else if (e.target.value === "질문/답변") {
+      setSelectCategorieNmae(e.target.value);
+      setSelectCategoriePk(5);
+    } else if (e.target.value === "뉴스") {
+      setSelectCategorieNmae(e.target.value);
+      setSelectCategoriePk(6);
+    } else if (e.target.value === "노하우") {
+      setSelectCategorieNmae(e.target.value);
+      setSelectCategoriePk(7);
+    }
   };
   const handleSubmit = () => {
-    if (selectCategorie && titleContent && textContent) {
+    if (selectCategoriePk && titleContent && textContent) {
       const newPost = {
-        categortPk: selectCategorie,
+        categortPk: selectCategoriePk,
+        categoryName: selectCategorieName,
+        pk: pk,
         title: titleContent,
         content: textContent,
         viewCount: 0,
@@ -40,7 +66,9 @@ const MakePost: React.FC = () => {
         writerProfileUrl:
           "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png",
       };
-      window.localStorage.setItem("newPost", JSON.stringify(newPost));
+      data.push(newPost);
+      //console.log(data, "123");
+      window.localStorage.setItem("Data", JSON.stringify(data));
       navigator("/community/list");
     } else {
       swal("모든 내용을 작성해주세요");

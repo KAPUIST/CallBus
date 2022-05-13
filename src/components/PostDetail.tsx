@@ -25,12 +25,12 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
   const data = JSON.parse(localData);
   const [likeCount, setLikeCount] = useState(postDetail[0].likeCount);
   const handleCount = (pk: number) => {
-    console.log(postDetail);
+    //console.log(postDetail);
     for (let i = 0; i < data.length; i++) {
       if (data[i].pk === pk) {
         data[i].likeCount = data[i].likeCount + 1;
         setLikeCount(likeCount + 1);
-        console.log(postDetail[0].likeCount);
+        //console.log(postDetail[0].likeCount);
         localStorage.setItem("Data", JSON.stringify(data));
       }
     }

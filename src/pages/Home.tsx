@@ -21,7 +21,7 @@ const Home: React.FC = () => {
   };
   useEffect(() => {
     axios_GetCategorie();
-    console.log(categorieDB);
+    //console.log(categorieDB);
   }, []);
   //console.log(categorieDB);
   return (

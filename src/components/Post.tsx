@@ -10,7 +10,12 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
 
   const navigate = useNavigate();
   const localData: any = localStorage.getItem("Data");
-  const data = JSON.parse(localData);
+  const data = JSON.parse(localData).sort((a: any, b: any) => {
+    a = new Date(a.writtenAt);
+    b = new Date(b.writtenAt);
+    return a > b ? -1 : a < b ? 1 : 0;
+  });
+
   const handleToDetail = (el: number) => {
     navigate(`/community/post/${el}`);
     for (let i = 0; i < data.length; i++) {
@@ -46,18 +51,15 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
     if (!localStorage.getItem("Data")) {
       await axios.get("../../../data/Post.json").then((res) => {
         localStorage.setItem("Data", JSON.stringify(res.data.POSTS));
-        // const data = JSON.stringify(res.data.POSTS);
       });
     }
   };
 
   const textLengthOverCut = (txt: string, len: any, lastTxt: string) => {
     if (len === "" || len === null) {
-      // 기본값
       len = 20;
     }
     if (lastTxt === "" || lastTxt === null) {
-      // 기본값
       lastTxt = "...";
     }
     if (txt.length > len) {
@@ -67,7 +69,7 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
   };
 
   useEffect(() => {
-    console.log(data);
+    //console.log(data);
     if (currentTab === 0) {
       setPost(data);
     } else if (currentTab === 1) {
@@ -145,10 +147,6 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
           </PostData>
         );
       })}
-      {/* <Header>
-        <img src={`${post.writerProfileUrl}`} alt={post.writerNickName} />
-      </Header>
-      <PostData></PostData> */}
     </Container>
   );
 };
