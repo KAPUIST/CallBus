@@ -66,6 +66,31 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
       }
     }
   };
+  const viewSplitLine = (content: string) => {
+    const urlRegex = /(https?:\/\/[^\s]+)/g;
+
+    // 링크를 감지하여 a 태그로 감싸기
+    const replace = (content: string) => {
+      const convertContent = content.replace(urlRegex, (url) => {
+        return '<a href="' + url + '" target="_blank">' + url + "</a>";
+      });
+
+      const htmlArr: any = [];
+      convertContent.split("\n").forEach((text) => {
+        const textHtml = "<p>" + text + "</p>";
+        htmlArr.push(textHtml);
+      });
+
+      return { __html: htmlArr.join("") };
+    };
+
+    return (
+      <div>
+        <div dangerouslySetInnerHTML={replace(content)}></div>
+      </div>
+    );
+  };
+
   const timeForToday = (value: string) => {
     const today = new Date();
     const timeValue = new Date(value);
@@ -106,7 +131,9 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
           </Header>
           <Main>
             <div className="title">{postDetail[0].title}</div>
-            <div className="content">{postDetail[0].content}</div>
+            <div className="content">
+              {viewSplitLine(postDetail[0].content)}
+            </div>
             {postDetail[0].imageUrl ? (
               postDetail[0].imageUrl.map((el) => {
                 return (
