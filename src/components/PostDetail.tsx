@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 interface DetailProps {
   postDetail: [
@@ -21,7 +21,21 @@ interface DetailProps {
 }
 
 const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
-  function timeForToday(value: string) {
+  const localData: any = localStorage.getItem("Data");
+  const data = JSON.parse(localData);
+  const [likeCount, setLikeCount] = useState(postDetail[0].likeCount);
+  const handleCount = (pk: number) => {
+    console.log(postDetail);
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].pk === pk) {
+        data[i].likeCount = data[i].likeCount + 1;
+        setLikeCount(likeCount + 1);
+        console.log(postDetail[0].likeCount);
+        localStorage.setItem("Data", JSON.stringify(data));
+      }
+    }
+  };
+  const timeForToday = (value: string) => {
     const today = new Date();
     const timeValue = new Date(value);
 
@@ -40,8 +54,10 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
       const overDate = value.split("T")[0];
       return overDate.slice(2, 10);
     }
-  }
-
+  };
+  useEffect(() => {
+    console.log(0);
+  }, [likeCount]);
   return (
     <Container>
       {init ? (
@@ -72,9 +88,12 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
               ></img>
             )}
             <PostInfo>
-              <span className="post_likes">
+              <span
+                className="post_likes"
+                onClick={() => handleCount(postDetail[0].pk)}
+              >
                 <img src="../../../hand-thumbs-up.svg" alt="thumns-up"></img>
-                <span>{postDetail[0].likeCount}</span>
+                <span>{likeCount}</span>
               </span>
               <span className="post_comment">
                 <img src="../../../chat-dots.svg" alt="chat"></img>

@@ -27,16 +27,22 @@ const Post: React.FC = () => {
   console.log(postDetail, "detail");
   return (
     <Container>
-      <Nav>
-        <img
-          className="arrow"
-          src={"../../../arrow-left.svg"}
-          alt="back-arrow"
-          onClick={() => handleBackArrow()}
-        ></img>
-        <div className="arrow-explain">글 목록으로</div>
-      </Nav>
-      <PostDetail postDetail={postDetail} init={init} />
+      {init ? (
+        <div>
+          <Nav>
+            <img
+              className="arrow"
+              src={"../../../arrow-left.svg"}
+              alt="back-arrow"
+              onClick={() => handleBackArrow()}
+            ></img>
+            <div className="arrow-explain">글 목록으로</div>
+          </Nav>
+          <PostDetail postDetail={postDetail} init={init} />
+        </div>
+      ) : (
+        ""
+      )}
     </Container>
   );
 };

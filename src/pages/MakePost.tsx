@@ -10,11 +10,11 @@ const MakePost: React.FC = () => {
   const [photo, setPhoto] = useState<any>({
     previewURL: "",
   });
-  function getFullYmdStr() {
+  const getFullYmdStr = () => {
     //년월일시분초 문자열 생성
     var d = new Date();
     return d.toISOString();
-  }
+  };
   console.log(textContent);
   console.log(titleContent);
   console.log(selectCategorie);

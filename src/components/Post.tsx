@@ -7,6 +7,7 @@ interface PostProps {
 }
 const Post: React.FC<PostProps> = ({ currentTab }) => {
   const [post, setPost] = useState<any>([]);
+
   const navigate = useNavigate();
   const localData: any = localStorage.getItem("Data");
   const data = JSON.parse(localData);
@@ -20,7 +21,7 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
     }
     return;
   };
-  function timeForToday(value: string) {
+  const timeForToday = (value: string) => {
     const today = new Date();
     const timeValue = new Date(value);
 
@@ -39,7 +40,7 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
       const overDate = value.split("T")[0];
       return overDate.slice(2, 10);
     }
-  }
+  };
 
   const axios_GetPost = async () => {
     if (!localStorage.getItem("Data")) {
@@ -50,7 +51,7 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
     }
   };
 
-  function textLengthOverCut(txt: string, len: any, lastTxt: string) {
+  const textLengthOverCut = (txt: string, len: any, lastTxt: string) => {
     if (len === "" || len === null) {
       // 기본값
       len = 20;
@@ -63,7 +64,7 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
       txt = txt.substring(0, len) + lastTxt;
     }
     return txt;
-  }
+  };
 
   useEffect(() => {
     console.log(data);
