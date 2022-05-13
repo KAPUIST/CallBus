@@ -2,19 +2,67 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
+import Loading from "../components/Loading";
 interface PostProps {
   currentTab: number;
 }
 const Post: React.FC<PostProps> = ({ currentTab }) => {
   const [post, setPost] = useState<any>([]);
-
-  const navigate = useNavigate();
+  const [isLoading, setIsLoading] = useState(false);
   const localData: any = localStorage.getItem("Data");
-  const data = JSON.parse(localData).sort((a: any, b: any) => {
-    a = new Date(a.writtenAt);
-    b = new Date(b.writtenAt);
-    return a > b ? -1 : a < b ? 1 : 0;
-  });
+  const data = JSON.parse(localData);
+  const navigate = useNavigate();
+
+  const axios_GetPost = async () => {
+    //console.log(localStorage.getItem("Data"));
+    if (!localStorage.getItem("Data")) {
+      setIsLoading(true);
+      await axios.get("../../../data/Post.json").then((res) => {
+        localStorage.setItem("Data", JSON.stringify(res.data.POSTS));
+      });
+      const localData: any = localStorage.getItem("Data");
+      const data = JSON.parse(localData);
+      localStorage.setItem("Data", JSON.stringify(data));
+      setPost(data);
+      setIsLoading(false);
+    } else {
+      const localData: any = localStorage.getItem("Data");
+      const data = JSON.parse(localData).sort((a: any, b: any) => {
+        a = new Date(a.writtenAt);
+        b = new Date(b.writtenAt);
+        return a > b ? -1 : a < b ? 1 : 0;
+      });
+      console.log(data);
+      setPost(data);
+    }
+  };
+  useEffect(() => {
+    axios_GetPost();
+    if (currentTab === 0) {
+    } else if (currentTab === 1) {
+      const hotData = data.filter((el: any) => el.viewCount > 100);
+      setPost(hotData);
+    } else if (currentTab === 2) {
+      const petitionData = data.filter(
+        (el: any) => el.categoryName === "대선청원"
+      );
+      setPost(petitionData);
+    } else if (currentTab === 3) {
+      const freeData = data.filter((el: any) => el.categoryName === "자유글");
+      setPost(freeData);
+    } else if (currentTab === 4) {
+      const qnaData = data.filter((el: any) => el.categoryName === "질문/답변");
+      setPost(qnaData);
+    } else if (currentTab === 5) {
+      const newsData = data.filter((el: any) => el.categoryName === "뉴스");
+      setPost(newsData);
+    } else if (currentTab === 6) {
+      const tipData = data.filter((el: any) => el.categoryName === "노하우");
+      setPost(tipData);
+    }
+  }, [currentTab]);
+
+  //console.log(localData);
 
   const handleToDetail = (el: number) => {
     navigate(`/community/post/${el}`);
@@ -47,14 +95,6 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
     }
   };
 
-  const axios_GetPost = async () => {
-    if (!localStorage.getItem("Data")) {
-      await axios.get("../../../data/Post.json").then((res) => {
-        localStorage.setItem("Data", JSON.stringify(res.data.POSTS));
-      });
-    }
-  };
-
   const textLengthOverCut = (txt: string, len: any, lastTxt: string) => {
     if (len === "" || len === null) {
       len = 20;
@@ -68,85 +108,66 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
     return txt;
   };
 
-  useEffect(() => {
-    //console.log(data);
-    if (currentTab === 0) {
-      setPost(data);
-    } else if (currentTab === 1) {
-      const hotData = data.filter((el: any) => el.viewCount > 100);
-      setPost(hotData);
-    } else if (currentTab === 2) {
-      const petitionData = data.filter(
-        (el: any) => el.categoryName === "대선청원"
-      );
-      setPost(petitionData);
-    } else if (currentTab === 3) {
-      const freeData = data.filter((el: any) => el.categoryName === "자유글");
-      setPost(freeData);
-    } else if (currentTab === 4) {
-      const qnaData = data.filter((el: any) => el.categoryName === "질문/답변");
-      setPost(qnaData);
-    } else if (currentTab === 5) {
-      const newsData = data.filter((el: any) => el.categoryName === "뉴스");
-      setPost(newsData);
-    } else if (currentTab === 6) {
-      const tipData = data.filter((el: any) => el.categoryName === "노하우");
-      setPost(tipData);
-    }
-  }, [currentTab]);
   //console.log(currentTab);
   //console.log(post.);
-  axios_GetPost();
+
   return (
     <Container>
-      {post.map((el: any, key: number) => {
-        return (
-          <PostData key={key}>
-            <Header>
-              <img src={el.writerProfileUrl} alt={el.writerNickName} />
-              <div>
-                <div className="user_name">{el.writerNickName}</div>
-                <div className="category">
-                  {el.categoryName} • {timeForToday(el.writtenAt)}
+      {isLoading ? (
+        <Loading />
+      ) : (
+        post.map((el: any, key: number) => {
+          return (
+            <PostData key={key}>
+              <Header>
+                <img src={el.writerProfileUrl} alt={el.writerNickName} />
+                <div>
+                  <div className="user_name">{el.writerNickName}</div>
+                  <div className="category">
+                    {el.categoryName} • {timeForToday(el.writtenAt)}
+                  </div>
                 </div>
-              </div>
-            </Header>
-            <Main>
-              <div className="title" onClick={() => handleToDetail(el.pk)}>
-                {textLengthOverCut(el.title, 25, "...")}
-              </div>
-              <div className="content" onClick={() => handleToDetail(el.pk)}>
-                {textLengthOverCut(el.content, 60, "...")}
-              </div>
-              {!el.imageUrl ? (
-                <></>
-              ) : (
-                <img
-                  className="content_image"
-                  src={el.imageUrl}
-                  onClick={() => handleToDetail(el.pk)}
-                  alt="content_image"
-                ></img>
-              )}
-              <PostInfo>
-                <span className="post_view">
-                  <img src="../../../eye.svg" alt="content_view"></img>
-                  <span>{el.viewCount}</span>
-                </span>
-                <span className="post_likes">
-                  <img src="../../../hand-thumbs-up.svg" alt="thumbs-up"></img>
-                  <span>{el.likeCount}</span>
-                </span>
-                <span className="post_comment">
-                  <img src="../../../chat-dots.svg" alt="chat"></img>
-                  <span>{el.commentCount}</span>
-                </span>
-              </PostInfo>
-            </Main>
-            <Underbar />
-          </PostData>
-        );
-      })}
+              </Header>
+              <Main>
+                <div className="title" onClick={() => handleToDetail(el.pk)}>
+                  {textLengthOverCut(el.title, 25, "...")}
+                </div>
+                <div className="content" onClick={() => handleToDetail(el.pk)}>
+                  {textLengthOverCut(el.content, 60, "...")}
+                </div>
+                {!el.imageUrl ? (
+                  <></>
+                ) : (
+                  <img
+                    className="content_image"
+                    src={el.imageUrl}
+                    onClick={() => handleToDetail(el.pk)}
+                    alt="content_image"
+                  ></img>
+                )}
+                <PostInfo>
+                  <span className="post_view">
+                    <img src="../../../eye.svg" alt="content_view"></img>
+                    <span>{el.viewCount}</span>
+                  </span>
+                  <span className="post_likes">
+                    <img
+                      src="../../../hand-thumbs-up.svg"
+                      alt="thumbs-up"
+                    ></img>
+                    <span>{el.likeCount}</span>
+                  </span>
+                  <span className="post_comment">
+                    <img src="../../../chat-dots.svg" alt="chat"></img>
+                    <span>{el.commentCount}</span>
+                  </span>
+                </PostInfo>
+              </Main>
+              <Underbar />
+            </PostData>
+          );
+        })
+      )}
     </Container>
   );
 };

@@ -21,7 +21,6 @@ const Home: React.FC = () => {
   };
   useEffect(() => {
     axios_GetCategorie();
-    //console.log(categorieDB);
   }, []);
   //console.log(categorieDB);
   return (
@@ -73,6 +72,7 @@ const PostButton = styled.button`
   color: white;
   bottom: 12vh;
   right: 41vw;
+  cursor: pointer;
   :hover {
     background-color: #e8e8e8; /* Green */
     color: black;

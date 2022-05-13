@@ -55,9 +55,7 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
       return overDate.slice(2, 10);
     }
   };
-  useEffect(() => {
-    console.log(0);
-  }, [likeCount]);
+
   return (
     <Container>
       {init ? (
@@ -177,7 +175,9 @@ const Main = styled.div`
 `;
 const PostInfo = styled.div`
   margin-bottom: 20px;
+
   > span {
+    transition-duration: 0.4s;
     margin-left: 25px;
     padding: 9px 9px 9px 9px;
     background-color: #f8f8f8;
@@ -187,11 +187,14 @@ const PostInfo = styled.div`
     font-weight: 500;
     line-height: 12px;
     cursor: pointer;
+    :hover {
+      background-color: #2c7fff; /* Green */
+      color: white;
+    }
     > img {
       margin-right: 5px;
       width: 14px;
       height: 10px;
-      color: #b4b4b4;
     }
   }
 `;

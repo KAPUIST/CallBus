@@ -13,6 +13,7 @@ const MakePost: React.FC = () => {
   const [photo, setPhoto] = useState<null | string>(null);
   const localData: any = localStorage.getItem("Data");
   const data = JSON.parse(localData);
+
   const findMaxPk = () => {
     const maxPk = data.map((el: any) => {
       return el.pk;
@@ -20,7 +21,10 @@ const MakePost: React.FC = () => {
     setPk(Math.max(...maxPk) + 1);
     console.log(pk);
   };
-  findMaxPk();
+  useEffect(() => {
+    findMaxPk();
+  }, []);
+
   const getFullYmdStr = () => {
     var d = new Date();
     return d.toISOString();
@@ -30,8 +34,8 @@ const MakePost: React.FC = () => {
     navigator("/community/list");
   };
   const handleSelect = (e: any) => {
-    console.log(selectCategoriePk);
-    console.log(e.target.value);
+    // console.log(selectCategoriePk);
+    //console.log(e.target.value);
     if (e.target.value === "대선청원") {
       setSelectCategorieNmae(e.target.value);
       setSelectCategoriePk(3);
@@ -74,7 +78,6 @@ const MakePost: React.FC = () => {
       swal("모든 내용을 작성해주세요");
     }
   };
-
   return (
     <Container>
       <Nav>
