@@ -135,9 +135,10 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
               {viewSplitLine(postDetail[0].content)}
             </div>
             {postDetail[0].imageUrl ? (
-              postDetail[0].imageUrl.map((el) => {
+              postDetail[0].imageUrl.map((el, key) => {
                 return (
                   <img
+                    key={key}
                     className="content_image"
                     src={el}
                     alt="content_image"

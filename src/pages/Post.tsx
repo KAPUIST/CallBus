@@ -11,7 +11,7 @@ const Post: React.FC = () => {
   let { post_pk } = useParams();
   const [postDetail, setPostDetail] = useState<any>([]);
   const [init, setInit] = useState<number>(0);
-  //console.log(post_pk, "pk");
+  ////(post_pk, "pk");
 
   const GetPost_Detail = () => {
     const loadData: any = localStorage.getItem("Data");
@@ -23,7 +23,7 @@ const Post: React.FC = () => {
     GetPost_Detail();
   }, []);
 
-  console.log(postDetail, "detail");
+  //console.log(postDetail, "detail");
   return (
     <Container>
       {init ? (

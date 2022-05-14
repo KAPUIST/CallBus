@@ -14,13 +14,14 @@ const MakePost: React.FC = () => {
 
   const localData: any = localStorage.getItem("Data");
   const data = JSON.parse(localData);
-  console.log(photo, "data");
+  //console.log(photo, "data");
   const findMaxPk = () => {
-    const maxPk = data.map((el: any) => {
-      return el.pk;
-    });
-    setPk(Math.max(...maxPk) + 1);
-    console.log(pk);
+    console.log(data);
+    let arr = [];
+    for (let i = 0; i < data.length; i++) {
+      arr.push(data[i].pk);
+    }
+    setPk(Math.max(...arr) + 1);
   };
 
   const getFullYmdStr = () => {
@@ -94,7 +95,7 @@ const MakePost: React.FC = () => {
     }
   };
   function handleOnInput(e: any, maxlength: number) {
-    console.log(e.target.value.length);
+    //console.log(e.target.value.length);
     if (e.target.value.length > maxlength) {
       e.target.value = e.target.value.substr(0, maxlength);
     }
@@ -103,8 +104,8 @@ const MakePost: React.FC = () => {
     let result = photo.concat();
     result.splice(index, 1);
     setPhoto(result);
-    console.log(result, "data");
-    console.log(index);
+    //console.log(result, "data");
+    //console.log(index);
   };
   useEffect(() => {
     findMaxPk();
@@ -155,10 +156,9 @@ const MakePost: React.FC = () => {
           <Images>
             {photo.map((el, key) => {
               return (
-                <li>
+                <li key={key}>
                   <div className="image_box">
                     <img
-                      key={key}
                       className="upload_image"
                       src={el}
                       alt="upload_image"

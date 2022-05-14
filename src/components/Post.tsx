@@ -33,33 +33,35 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
         return a > b ? -1 : a < b ? 1 : 0;
       });
       //console.log(data);
-      setPost(data);
+      if (currentTab === 0) {
+        setPost(data);
+      } else if (currentTab === 1) {
+        const hotData = data.filter((el: any) => el.viewCount > 100);
+        setPost(hotData);
+      } else if (currentTab === 2) {
+        const petitionData = data.filter(
+          (el: any) => el.categoryName === "대선청원"
+        );
+        setPost(petitionData);
+      } else if (currentTab === 3) {
+        const freeData = data.filter((el: any) => el.categoryName === "자유글");
+        setPost(freeData);
+      } else if (currentTab === 4) {
+        const qnaData = data.filter(
+          (el: any) => el.categoryName === "질문/답변"
+        );
+        setPost(qnaData);
+      } else if (currentTab === 5) {
+        const newsData = data.filter((el: any) => el.categoryName === "뉴스");
+        setPost(newsData);
+      } else if (currentTab === 6) {
+        const tipData = data.filter((el: any) => el.categoryName === "노하우");
+        setPost(tipData);
+      }
     }
   };
   useEffect(() => {
     axios_GetPost();
-    if (currentTab === 0) {
-    } else if (currentTab === 1) {
-      const hotData = data.filter((el: any) => el.viewCount > 100);
-      setPost(hotData);
-    } else if (currentTab === 2) {
-      const petitionData = data.filter(
-        (el: any) => el.categoryName === "대선청원"
-      );
-      setPost(petitionData);
-    } else if (currentTab === 3) {
-      const freeData = data.filter((el: any) => el.categoryName === "자유글");
-      setPost(freeData);
-    } else if (currentTab === 4) {
-      const qnaData = data.filter((el: any) => el.categoryName === "질문/답변");
-      setPost(qnaData);
-    } else if (currentTab === 5) {
-      const newsData = data.filter((el: any) => el.categoryName === "뉴스");
-      setPost(newsData);
-    } else if (currentTab === 6) {
-      const tipData = data.filter((el: any) => el.categoryName === "노하우");
-      setPost(tipData);
-    }
   }, [currentTab]);
 
   //console.log(localData);
