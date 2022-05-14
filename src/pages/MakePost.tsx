@@ -32,7 +32,7 @@ const MakePost: React.FC = () => {
   const handleBackArrow = () => {
     navigator("/community/list");
   };
-  const handleSelect = (e: any) => {
+  const handleSelect = (e: React.ChangeEvent<HTMLSelectElement>) => {
     // console.log(selectCategoriePk);
     //console.log(e.target.value);
     if (e.target.value === "대선청원") {

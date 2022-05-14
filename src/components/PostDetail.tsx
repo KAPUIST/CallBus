@@ -21,17 +21,18 @@ interface DetailProps {
 }
 
 const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
-  const localData: any = localStorage.getItem("Data");
+  const localData = localStorage.getItem("Data") || "";
   const data = JSON.parse(localData);
   const [likeCount, setLikeCount] = useState(postDetail[0].likeCount);
 
   const handleCount = (pk: number) => {
-    const loadLikeData: any = localStorage.getItem("LikeData");
+    const loadLikeData = localStorage.getItem("LikeData") || "";
+    //타입
     const likeData = JSON.parse(loadLikeData);
 
     if (!likeData) {
       localStorage.setItem("LikeData", JSON.stringify([]));
-      const loadLikeData: any = localStorage.getItem("LikeData");
+      const loadLikeData = localStorage.getItem("LikeData") || "";
       const likeData = JSON.parse(loadLikeData);
       for (let j = 0; j < data.length; j++) {
         if (data[j].pk === pk) {
@@ -75,7 +76,7 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
         return '<a href="' + url + '" target="_blank">' + url + "</a>";
       });
 
-      const htmlArr: any = [];
+      const htmlArr: string[] = [];
       convertContent.split("\n").forEach((text) => {
         const textHtml = "<p>" + text + "</p>";
         htmlArr.push(textHtml);

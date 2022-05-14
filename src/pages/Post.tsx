@@ -17,13 +17,14 @@ const Post: React.FC = () => {
     const loadData: any = localStorage.getItem("Data");
     const data = JSON.parse(loadData);
     const detaildata = data.filter((el: any) => el.pk === Number(post_pk));
+    console.log(data);
     return setPostDetail(detaildata), setInit(1);
   };
   useEffect(() => {
     GetPost_Detail();
   }, []);
 
-  //console.log(postDetail, "detail");
+  console.log(postDetail, "detail");
   return (
     <Container>
       {init ? (

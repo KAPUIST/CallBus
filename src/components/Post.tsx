@@ -20,13 +20,13 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
       await axios.get("../../../data/Post.json").then((res) => {
         localStorage.setItem("Data", JSON.stringify(res.data.POSTS));
       });
-      const localData: any = localStorage.getItem("Data");
+      const localData = localStorage.getItem("Data") || "";
       const data = JSON.parse(localData);
       localStorage.setItem("Data", JSON.stringify(data));
       setPost(data);
       setIsLoading(false);
     } else {
-      const localData: any = localStorage.getItem("Data");
+      const localData = localStorage.getItem("Data") || "";
       const data = JSON.parse(localData).sort((a: any, b: any) => {
         a = new Date(a.writtenAt);
         b = new Date(b.writtenAt);
@@ -97,8 +97,8 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
     }
   };
 
-  const textLengthOverCut = (txt: string, len: any, lastTxt: string) => {
-    if (len === "" || len === null) {
+  const textLengthOverCut = (txt: string, len: number, lastTxt: string) => {
+    if (len === 0 || len === null) {
       len = 20;
     }
     if (lastTxt === "" || lastTxt === null) {

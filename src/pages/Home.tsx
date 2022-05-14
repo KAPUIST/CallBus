@@ -1,11 +1,11 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import axios from "axios";
 import CategorieTab from "../components/CategoryTab";
 import Post from "../components/Post";
 
-const Home: React.FC = () => {
+function Home(): React.ReactElement {
   const [categorieDB, setCategorieDB] = useState<any>([]);
   const [currentTab, setCurrntTab] = useState(0);
   const navigator = useNavigate();
@@ -37,7 +37,7 @@ const Home: React.FC = () => {
       <PostButton onClick={() => handleMakePost()}>글쓰기 ✍️</PostButton>
     </Container>
   );
-};
+}
 export default Home;
 const Container = styled.div`
   display: flex;
