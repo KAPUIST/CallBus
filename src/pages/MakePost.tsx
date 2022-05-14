@@ -57,7 +57,12 @@ const MakePost: React.FC = () => {
   };
   const handleSubmit = () => {
     if (selectCategoriePk && titleContent && textContent) {
-      if (photo.length === 0) {
+      let titleChar = titleContent.charAt(0);
+      let contentChar = textContent.charAt(0);
+      console.log(titleChar);
+      if (titleChar === " " || contentChar === " ") {
+        return swal("첫글자로는 공백을 입력할수 없습니다.");
+      } else if (photo.length === 0) {
         const newPost = {
           categortPk: selectCategoriePk,
           categoryName: selectCategorieName,

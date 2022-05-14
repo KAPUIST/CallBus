@@ -1,4 +1,3 @@
-import * as React from "react";
 import Home from "./pages/Home";
 import Post from "./pages/Post";
 import MakePost from "./pages/MakePost";
