@@ -59,7 +59,7 @@ const MakePost: React.FC = () => {
     if (selectCategoriePk && titleContent && textContent) {
       let titleChar = titleContent.charAt(0);
       let contentChar = textContent.charAt(0);
-      console.log(titleChar);
+      //console.log(titleChar);
       if (titleChar === " " || contentChar === " ") {
         return swal("첫글자로는 공백을 입력할수 없습니다.");
       } else if (photo.length === 0) {
@@ -106,7 +106,6 @@ const MakePost: React.FC = () => {
     }
   };
   const handleImageUploader = (event: React.ChangeEvent<HTMLInputElement>) => {
-    console.log(123);
     if (event.target.files && event.target.files[0]) {
       let result = photo.concat();
 
@@ -119,7 +118,6 @@ const MakePost: React.FC = () => {
       } else {
         for (let i = 0; i < image.length; i++) {
           result.unshift(`../../../${image[i].name}`);
-          console.log(result, "?");
         }
         setPhoto(result);
         event.target.value = "";
@@ -131,7 +129,6 @@ const MakePost: React.FC = () => {
     maxlength: number
   ) => {
     const target = e.target as HTMLTextAreaElement;
-    console.log(target.value);
     if (target.value.length > maxlength) {
       target.value = target.value.substring(0, maxlength);
     }
@@ -239,7 +236,6 @@ const MakePost: React.FC = () => {
             multiple
             style={{ display: "none" }}
             onChange={(event) => {
-              console.log(event);
               handleImageUploader(event);
             }}
           />
