@@ -128,10 +128,10 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
               </Header>
               <Main>
                 <div className="title" onClick={() => handleToDetail(el.pk)}>
-                  {textLengthOverCut(el.title, 25, "...")}
+                  {textLengthOverCut(el.title, 20, "...")}
                 </div>
                 <div className="content" onClick={() => handleToDetail(el.pk)}>
-                  {textLengthOverCut(el.content, 60, "...")}
+                  {textLengthOverCut(el.content, 50, "...")}
                 </div>
                 {el.imageUrl ? (
                   <img

@@ -10,8 +10,8 @@ const MakePost: React.FC = () => {
   const [pk, setPk] = useState<number>(0);
   const [titleContent, setTitleContent] = useState<string>("");
   const [textContent, setTextContent] = useState<any>("");
-  const [photo, setPhoto] = useState<null | string[]>([]);
-
+  const [photo, setPhoto] = useState<string[]>([]);
+  console.log(selectCategoriePk, selectCategorieName);
   const localData: any = localStorage.getItem("Data");
   const data = JSON.parse(localData);
   //console.log(photo, "data");
@@ -50,31 +50,54 @@ const MakePost: React.FC = () => {
     } else if (e.target.value === "노하우") {
       setSelectCategorieNmae(e.target.value);
       setSelectCategoriePk(7);
+    } else if (e.target.value === "미선택") {
+      setSelectCategorieNmae("");
+      setSelectCategoriePk(0);
     }
   };
   const handleSubmit = () => {
     if (selectCategoriePk && titleContent && textContent) {
-      const newPost = {
-        categortPk: selectCategoriePk,
-        categoryName: selectCategorieName,
-        pk: pk,
-        title: titleContent,
-        content: textContent,
-        viewCount: 0,
-        likeCount: 0,
-        commentCount: 0,
-        imageUrl: photo,
-        writtenAt: getFullYmdStr(),
-        writerNickName: "손태권",
-        writerProfileUrl:
-          "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png",
-      };
-      data.push(newPost);
-      //console.log(data, "123");
-      window.localStorage.setItem("Data", JSON.stringify(data));
-      navigator("/community/list");
-    } else {
-      swal("모든 내용을 작성해주세요");
+      if (photo.length === 0) {
+        const newPost = {
+          categortPk: selectCategoriePk,
+          categoryName: selectCategorieName,
+          pk: pk,
+          title: titleContent,
+          content: textContent,
+          viewCount: 0,
+          likeCount: 0,
+          commentCount: 0,
+          imageUrl: null,
+          writtenAt: getFullYmdStr(),
+          writerNickName: "손태권",
+          writerProfileUrl:
+            "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png",
+        };
+        data.push(newPost);
+        //console.log(data, "123");
+        window.localStorage.setItem("Data", JSON.stringify(data));
+        navigator("/community/list");
+      } else {
+        const newPost = {
+          categortPk: selectCategoriePk,
+          categoryName: selectCategorieName,
+          pk: pk,
+          title: titleContent,
+          content: textContent,
+          viewCount: 0,
+          likeCount: 0,
+          commentCount: 0,
+          imageUrl: photo,
+          writtenAt: getFullYmdStr(),
+          writerNickName: "손태권",
+          writerProfileUrl:
+            "https://static.zaritalk.com/profiles/profile-57-img-fox-39-39%403x.png",
+        };
+        data.push(newPost);
+        //console.log(data, "123");
+        window.localStorage.setItem("Data", JSON.stringify(data));
+        navigator("/community/list");
+      }
     }
   };
   const handleImageUploader = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -94,12 +117,16 @@ const MakePost: React.FC = () => {
       }
     }
   };
-  function handleOnInput(e: any, maxlength: number) {
-    //console.log(e.target.value.length);
-    if (e.target.value.length > maxlength) {
-      e.target.value = e.target.value.substr(0, maxlength);
+  const handleOnInput = (
+    e: React.FormEvent<HTMLInputElement>,
+    maxlength: number
+  ) => {
+    const target = e.target as HTMLTextAreaElement;
+    console.log(target.value);
+    if (target.value.length > maxlength) {
+      target.value = target.value.substring(0, maxlength);
     }
-  }
+  };
   const handleImageDelete = (index: number) => {
     let result = photo.concat();
     result.splice(index, 1);
@@ -120,7 +147,17 @@ const MakePost: React.FC = () => {
           onClick={() => handleBackArrow()}
         />
         <div className="make_post_tag">글쓰기</div>
-        <button className="make_post_submit" onClick={handleSubmit}>
+        <button
+          className={
+            selectCategoriePk && titleContent && textContent
+              ? "make_post_submit"
+              : "cant_make_submit"
+          }
+          disabled={
+            selectCategoriePk && titleContent && textContent ? false : true
+          }
+          onClick={handleSubmit}
+        >
           완료
         </button>
       </Nav>
@@ -230,6 +267,20 @@ const Nav = styled.div`
     line-height: 21px;
     text-align: center;
     color: #222222;
+  }
+  .cant_make_submit {
+    margin: 10px;
+    width: 60px;
+    height: 36px;
+    background-color: #e8e8e8;
+    border-radius: 8px;
+    font-weight: 700;
+    font-size: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    border: #2c7fff;
   }
   .make_post_submit {
     transition-duration: 0.4s;
