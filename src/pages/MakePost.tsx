@@ -10,10 +10,11 @@ const MakePost: React.FC = () => {
   const [pk, setPk] = useState<number>(0);
   const [titleContent, setTitleContent] = useState<string>("");
   const [textContent, setTextContent] = useState<any>("");
-  const [photo, setPhoto] = useState<null | string>(null);
+  const [photo, setPhoto] = useState<null | string[]>([]);
+
   const localData: any = localStorage.getItem("Data");
   const data = JSON.parse(localData);
-
+  console.log(photo, "data");
   const findMaxPk = () => {
     const maxPk = data.map((el: any) => {
       return el.pk;
@@ -21,9 +22,6 @@ const MakePost: React.FC = () => {
     setPk(Math.max(...maxPk) + 1);
     console.log(pk);
   };
-  useEffect(() => {
-    findMaxPk();
-  }, []);
 
   const getFullYmdStr = () => {
     var d = new Date();
@@ -78,12 +76,39 @@ const MakePost: React.FC = () => {
       swal("모든 내용을 작성해주세요");
     }
   };
+  const handleImageUploader = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      let result = photo.concat();
+      let image: File[] = Array.from(event.target.files);
+
+      if (image.length > 6 || image.length + result.length > 6) {
+        return swal("이미지는 6개이상 등록할수 없습니다.");
+      } else if (result.length >= 6) {
+        return swal("이미지는 6개이상 등록할수 없습니다.");
+      } else {
+        for (let i = 0; i < image.length; i++) {
+          result.unshift(`../../../${image[i].name}`);
+        }
+        setPhoto(result);
+      }
+    }
+  };
   function handleOnInput(e: any, maxlength: number) {
     console.log(e.target.value.length);
     if (e.target.value.length > maxlength) {
       e.target.value = e.target.value.substr(0, maxlength);
     }
   }
+  const handleImageDelete = (index: number) => {
+    let result = photo.concat();
+    result.splice(index, 1);
+    setPhoto(result);
+    console.log(result, "data");
+    console.log(index);
+  };
+  useEffect(() => {
+    findMaxPk();
+  }, []);
   return (
     <Container>
       <Nav>
@@ -126,15 +151,51 @@ const MakePost: React.FC = () => {
           ◎ 광고글 금지. 서비스 이용이 제한됩니다.
         "
         ></textarea>
+        <ImageContainer>
+          <Images>
+            {photo.map((el, key) => {
+              return (
+                <li>
+                  <div className="image_box">
+                    <img
+                      key={key}
+                      className="upload_image"
+                      src={el}
+                      alt="upload_image"
+                    ></img>
+                    <button
+                      className="image_delete"
+                      onClick={() => handleImageDelete(key)}
+                    >
+                      X
+                    </button>
+                  </div>
+                </li>
+              );
+            })}
+          </Images>
+        </ImageContainer>
+
         <MakePhoto>
-          <div className="post_photo">
-            <img
-              className="post_photo_icon"
-              src="../../../image-icon.svg"
-              alt="content_view"
-            ></img>
-            <div className="count_photo">사진(3/6)</div>
-          </div>
+          <label className="input_file_button" htmlFor="input_file">
+            <div className="post_photo">
+              <img
+                className="post_photo_icon"
+                src="../../../image-icon.svg"
+                alt="content_view"
+              ></img>
+              <div className="photo_count">사진({photo.length}/6)</div>
+            </div>
+          </label>
+          <input
+            type="file"
+            id="input_file"
+            multiple
+            style={{ display: "none" }}
+            onChange={(event) => {
+              handleImageUploader(event);
+            }}
+          />
         </MakePhoto>
       </Content>
     </Container>
@@ -197,7 +258,6 @@ const Selector = styled.div`
   padding: 11px 0px 10px 20px;
   > select {
     display: inline-block;
-
     border: 0px;
     font-size: 14px;
     font-weight: 700;
@@ -225,10 +285,42 @@ const Content = styled.div`
     height: 300px;
   }
 `;
+const ImageContainer = styled.div`
+  padding-left: 15px;
+`;
+const Images = styled.ul`
+  display: flex;
+  white-space: nowrap;
+  overflow: auto;
+
+  list-style: none;
+  .image_box {
+    position: relative;
+  }
+  .upload_image {
+    padding: 8px;
+    width: 89px;
+    height: 83px;
+    border-radius: 4px;
+    white-space: nowrap;
+    overflow: auto;
+  }
+  .image_delete {
+    position: absolute;
+    top: 4px;
+    right: 4px;
+    width: 24px;
+    height: 24px;
+    background: rgba(0, 0, 0, 0.5);
+    border-radius: 4px;
+    border: white;
+    color: white;
+    cursor: pointer;
+  }
+`;
 const MakePhoto = styled.div`
   display: flex;
-  > div {
-    display: flex;
+  > label {
     transition-duration: 0.4s;
     padding: 9px 9px 9px 9px;
     background-color: #dbe9ff;
@@ -236,16 +328,18 @@ const MakePhoto = styled.div`
     color: #2c7fff;
     font-size: 12px;
     font-weight: 700;
-    line-height: 14px;
     cursor: pointer;
     :hover {
       background-color: #2c7fff; /* Green */
       color: white;
     }
-    > img {
-      margin-right: 5px;
-      width: 17px;
-      height: 16px;
+    .photo_count {
+      display: inline-block;
+      margin-left: 10px;
+    }
+    .post_photo_icon {
+      width: 15px;
+      height: 15px;
     }
   }
 `;
