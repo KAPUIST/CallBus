@@ -11,7 +11,7 @@ const MakePost: React.FC = () => {
   const [titleContent, setTitleContent] = useState<string>("");
   const [textContent, setTextContent] = useState<any>("");
   const [photo, setPhoto] = useState<string[]>([]);
-  console.log(selectCategoriePk, selectCategorieName);
+  //console.log(selectCategoriePk, selectCategorieName);
   const localData: any = localStorage.getItem("Data");
   const data = JSON.parse(localData);
   //console.log(photo, "data");
@@ -101,8 +101,10 @@ const MakePost: React.FC = () => {
     }
   };
   const handleImageUploader = (event: React.ChangeEvent<HTMLInputElement>) => {
+    console.log(123);
     if (event.target.files && event.target.files[0]) {
       let result = photo.concat();
+
       let image: File[] = Array.from(event.target.files);
 
       if (image.length > 6 || image.length + result.length > 6) {
@@ -112,8 +114,10 @@ const MakePost: React.FC = () => {
       } else {
         for (let i = 0; i < image.length; i++) {
           result.unshift(`../../../${image[i].name}`);
+          console.log(result, "?");
         }
         setPhoto(result);
+        event.target.value = "";
       }
     }
   };
@@ -230,6 +234,7 @@ const MakePost: React.FC = () => {
             multiple
             style={{ display: "none" }}
             onChange={(event) => {
+              console.log(event);
               handleImageUploader(event);
             }}
           />
