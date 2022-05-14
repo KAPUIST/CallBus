@@ -126,6 +126,16 @@ const MakePost: React.FC = () => {
           ◎ 광고글 금지. 서비스 이용이 제한됩니다.
         "
         ></textarea>
+        <MakePhoto>
+          <div className="post_photo">
+            <img
+              className="post_photo_icon"
+              src="../../../image-icon.svg"
+              alt="content_view"
+            ></img>
+            <div className="count_photo">사진(3/6)</div>
+          </div>
+        </MakePhoto>
       </Content>
     </Container>
   );
@@ -213,5 +223,29 @@ const Content = styled.div`
     border: none;
     resize: none;
     height: 300px;
+  }
+`;
+const MakePhoto = styled.div`
+  display: flex;
+  > div {
+    display: flex;
+    transition-duration: 0.4s;
+    padding: 9px 9px 9px 9px;
+    background-color: #dbe9ff;
+    border-radius: 6px;
+    color: #2c7fff;
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 14px;
+    cursor: pointer;
+    :hover {
+      background-color: #2c7fff; /* Green */
+      color: white;
+    }
+    > img {
+      margin-right: 5px;
+      width: 17px;
+      height: 16px;
+    }
   }
 `;
