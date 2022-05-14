@@ -124,7 +124,7 @@ const PostDetail: React.FC<DetailProps> = ({ postDetail, init }) => {
             <div>
               <div className="user_name">{postDetail[0].writerNickName}</div>
               <div className="category">
-                {postDetail[0].categoryName} •
+                {postDetail[0].categoryName}&nbsp;&nbsp;•&nbsp;&nbsp;
                 {timeForToday(postDetail[0].writtenAt)}
               </div>
             </div>

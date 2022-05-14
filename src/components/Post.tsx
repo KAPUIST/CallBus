@@ -122,7 +122,8 @@ const Post: React.FC<PostProps> = ({ currentTab }) => {
                 <div>
                   <div className="user_name">{el.writerNickName}</div>
                   <div className="category">
-                    {el.categoryName} • {timeForToday(el.writtenAt)}
+                    {el.categoryName}&nbsp;&nbsp;•&nbsp;&nbsp;
+                    {timeForToday(el.writtenAt)}
                   </div>
                 </div>
               </Header>
